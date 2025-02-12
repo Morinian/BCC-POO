@@ -33,7 +33,7 @@ static void Exer1(string[] args)
     }
 }
 
-//Exercicio 1
+//Exercicio 2
 //Faça um programa que receba 5 notas de apenas 1 aluno. O programa deve
 //calcular a média desse aluno.
 static void Exer2(string[] args)
