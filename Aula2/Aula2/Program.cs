@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic; //Biblioteca para utilização da lista
+using System.IO; //Biblioteca para utilização de leitura de arquivo
 
 //Exercicio 1
 //Faça um programa que receba 5 notas de 5 alunos. O programa deve calcular
@@ -180,4 +181,95 @@ static void Exer5(string[] args)
     }
 }
 
-Exer5(args);
+//Exercício 6
+//• Faça um programa que o usuário digita sua data de nascimento e devolve
+//quantos anos, meses, dias a pessoa possui desde que
+//nasceu.
+static void Exer6(string[] args)
+{
+    int diaTemp, mesTemp, anoTemp;
+
+    Console.WriteLine("Escreva o dia do seu nascimento");
+    diaTemp = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Escreva o mes do seu nascimento");
+    mesTemp = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Escreva o ano do seu nascimento");
+    anoTemp = Convert.ToInt32(Console.ReadLine());
+
+    DateTime dataNasc = new DateTime(anoTemp, mesTemp, diaTemp);
+    DateTime dataAtual = DateTime.Now;
+
+    int anos = dataAtual.Year - dataNasc.Year;
+    int meses = dataAtual.Month - dataNasc.Month;
+    int dias = dataAtual.Day - dataNasc.Day;
+
+    if (dias < 0)
+    {
+        meses--;
+        dias += DateTime.DaysInMonth(dataAtual.Year, (dataAtual.Month == 1 ? 12 : dataAtual.Month - 1));
+    }
+    if (meses < 0)
+    {
+        anos--;
+        meses += 12;
+    }
+
+    Console.WriteLine($"{dataNasc.Year}, {dataAtual.Year}");
+    Console.WriteLine($"Você possui {anos}, {meses} e {dias}");
+}
+
+static void Exer7(string[] args)
+{
+    List<string> tarefas = new List<string>();
+    string tarefaTemp;
+    int opcao = 0, numTarefa;
+
+    Console.WriteLine("Bem vindo a sua lista de tarefas");
+    while (opcao != 4)
+    {
+        Console.WriteLine("1-Excluir Tarefa");
+        Console.WriteLine("2-Adicionar Tarefa");
+        Console.WriteLine("3-Listar tarefas");
+        Console.WriteLine("4-Sair");
+        Console.WriteLine("5-Escrever em um arquivo");
+        Console.WriteLine("6-Listar no arquivo");
+        Console.WriteLine("6-Salvar o arquivo \n");
+
+        opcao = Convert.ToInt32(Console.ReadLine());
+
+        switch (opcao)
+        {
+            case 1:
+                Console.WriteLine("Qual tarefa você quer excluir?");
+                numTarefa = Convert.ToInt32(Console.ReadLine());
+                tarefas.RemoveAt(numTarefa - 1);
+                break;
+            case 2:
+                Console.WriteLine("Qual tarefa você quer adicionar?");
+                tarefaTemp = Console.ReadLine();
+                tarefas.Add(tarefaTemp);
+                break;
+            case 3:
+                Console.WriteLine("------------------");
+                for (int i = 0; i < tarefas.Count; i++)
+                {
+                    Console.WriteLine("{0}) {1}", i + 1, tarefas[i]);
+                }
+                Console.WriteLine("------------------");
+                break;
+            case 4:
+                break;
+            case 5:
+                File.WriteAllLines("listaTarefa.txt",tarefas); 
+                break;
+            case 6:
+                string textoTarefa = File.ReadAllText("listaTarefa.txt");
+                Console.WriteLine("{0}", textoTarefa);
+                break;
+            case 7:
+
+                break;
+        }
+    }
+}
+Exer7(args);
