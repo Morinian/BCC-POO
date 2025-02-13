@@ -90,6 +90,12 @@ static void Exer3(string[] args)
     }
 }
 
+//Exercicio 4
+//Faça um programa que simula uma lista de tarefas
+//• O programa deve permitir que o usuário insira uma tarefa ou remova uma
+//tarefa
+//• O usuário deve poder escrever a tarefa
+//• O programa também deve poder imprimir a lista de tarefas
 static void Exer4(string[] args)
 {
     List<string> tarefas = new List<string>();
@@ -132,4 +138,46 @@ static void Exer4(string[] args)
     
 }
 
-Exer4(args);
+//Exercicio 5
+//Faça um programa que simula um caixa de supermercado
+//• O usuário deve poder adicionar um item e sua quantidade
+//• Se o item já existir na lista, a nova quantidade deve ser acrescentada a
+//quantidade atual
+//• Permita imprimir a lista inteira juntamente com a quantidade de elementos
+//da lista
+static void Exer5(string[] args)
+{
+    Dictionary<string, int> listaMercado = new Dictionary<string, int>();
+    int qtdTemp;
+    string nomeTemp;
+    bool parar = false;
+
+    while (parar == false)
+    {
+        Console.WriteLine("Escreva nome do item");
+        nomeTemp = Console.ReadLine();
+        Console.WriteLine("Escreva a quantidade do item");
+        qtdTemp = Convert.ToInt32(Console.ReadLine());
+
+        if (listaMercado.ContainsKey(nomeTemp))
+        {
+            listaMercado[nomeTemp] += qtdTemp;
+        }
+        else
+        {
+            listaMercado.Add(nomeTemp, qtdTemp);
+        }
+
+        Console.WriteLine("Escreva true Se quiser parar ou false para continuar");
+        parar = Convert.ToBoolean(Console.ReadLine());
+
+    }
+
+    Console.WriteLine("LISTA DE COMPRAS--------------");
+    foreach (var item in listaMercado)
+    {
+        Console.WriteLine($"{item.Key}: {item.Value}");
+    }
+}
+
+Exer5(args);
