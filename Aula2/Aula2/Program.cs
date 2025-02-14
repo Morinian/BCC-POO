@@ -224,6 +224,9 @@ static void Exer7(string[] args)
     string tarefaTemp;
     int opcao = 0, numTarefa;
 
+    // Obtém o caminho da Área de Trabalho do usuário
+    string caminhoArquivo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "listaTarefa.txt");
+
     Console.WriteLine("Bem vindo a sua lista de tarefas");
     while (opcao != 4)
     {
@@ -233,7 +236,7 @@ static void Exer7(string[] args)
         Console.WriteLine("4-Sair");
         Console.WriteLine("5-Escrever em um arquivo");
         Console.WriteLine("6-Listar no arquivo");
-        Console.WriteLine("6-Salvar o arquivo \n");
+        Console.WriteLine("7-Salvar o arquivo \n");
 
         opcao = Convert.ToInt32(Console.ReadLine());
 
@@ -267,7 +270,7 @@ static void Exer7(string[] args)
                 Console.WriteLine("{0}", textoTarefa);
                 break;
             case 7:
-
+                File.WriteAllLines(caminhoArquivo, tarefas);
                 break;
         }
     }
