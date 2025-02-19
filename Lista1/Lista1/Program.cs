@@ -140,10 +140,26 @@ static void Exer2(string[] args)
     Console.WriteLine("Quantidade de numeros que você ira colocar de 3 a 10 numeros");
     quantidade = Convert.ToInt32(Console.ReadLine());
 
-    if (quantidade < 3 || quantidade > 10) {
+    if (quantidade < 3 || quantidade > 10)
+    {
         Console.WriteLine("Quantidade errada (3 a 10 numeros)");
+    }
+    else
+    {
+        List<double> listaNumeros = new List<double>();
 
-    List<string> list = new List<string>();
+        for (int i = 0; i < quantidade; i++)
+        {
+            Console.WriteLine("\nEscreva o numero {0}:", i+1);
+            double numeroTemp = Convert.ToDouble(Console.ReadLine());
+            listaNumeros.Add(numeroTemp);
+        }
+
+        double soma = listaNumeros.Sum();
+        double media = listaNumeros.Average();
+        Console.WriteLine("A somatoria é {0}, a média é {1}", soma, media);
+
+    }
 }
 
 //Exercício 3 - Jogar Dados
@@ -249,7 +265,7 @@ static void Exer6(string[] args)
 //○ Normal: 6 tentativas
 //○ Difícil: 5 tentativas
 
-static void Exer6(string[] args)
+static void Exer7(string[] args)
 {
 
 }
