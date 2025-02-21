@@ -200,9 +200,15 @@ static void Exer2(string[] args)
 //jogando dados. O próximo a pontuar ganha o jogo.
 //2. Crie uma opção antes de iniciar o jogo que permite que o usuário
 
-static void Exer6(string[] args)
+static void Exer3(string[] args)
 {
+    string jogador1, jogador2;
 
+    Console.WriteLine("Quem é o primeiro jogador?");
+    jogador1 = Console.ReadLine();
+
+    Console.WriteLine("Quem é o primeiro jogador?");
+    jogador2 = Console.ReadLine();
 }
 
 //Exercício 6 - Jogo da Forca
@@ -265,9 +271,9 @@ static void Exer6(string[] args)
 //○ Normal: 6 tentativas
 //○ Difícil: 5 tentativas
 
-static void Exer7(string[] args)
+static void Exer6(string[] args)
 {
 
 }
 
-Exer2(args);
+Exer3(args);
