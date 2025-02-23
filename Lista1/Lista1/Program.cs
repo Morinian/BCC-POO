@@ -268,6 +268,10 @@ static void Exer3(string[] args)
         }
     }
 
+    if (placarJog1 > placarJog2)
+        Console.WriteLine("{0} GANHOU !!! PARABENS", jogador1);
+    else
+        Console.WriteLine("{0} GANHOU !!! PARABENS", jogador2);
 }
 
 //Exercício 6 - Jogo da Forca
