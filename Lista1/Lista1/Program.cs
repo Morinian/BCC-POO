@@ -274,6 +274,8 @@ static void Exer3(string[] args)
         Console.WriteLine("{0} GANHOU !!! PARABENS", jogador2);
 }
 
+//Exercicio 4
+
 //Objetivo: usando uma aplicação do tipo console do dotnet, criar uma aplicação que listará
 //algumas datas importante da área da técnologia, escolhar 5 datas ou utilize os sugeridos
 //nos requisitos.
