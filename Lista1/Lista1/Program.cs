@@ -198,17 +198,76 @@ static void Exer2(string[] args)
 //Desafios
 //1. Se a terceira rodada terminar em empate, faça com que os jogadores continuem
 //jogando dados. O próximo a pontuar ganha o jogo.
-//2. Crie uma opção antes de iniciar o jogo que permite que o usuário
+//2. Crie uma opção antes de iniciar o jogo que permite que o usuário selecione a
+//quantidade de rodadas. A quantidade deve estar entre 1 e 5
+
+static void analiseJogo(string jogador1, string jogador2,int dadoJog1, int dadoJog2, ref int placarJog1, ref int placarJog2)
+{
+    Console.WriteLine("\n{0} tirou {1} | {2} tirou {3}", jogador1, dadoJog1, jogador2, dadoJog2);
+
+    if (dadoJog1 > dadoJog2)
+    {
+        placarJog1++;
+        Console.WriteLine("{0} Ganhou!", jogador1);
+    }
+    else if (dadoJog1 < dadoJog2)
+    {
+        placarJog2++;
+        Console.WriteLine("{0} Ganhou!", jogador2);
+    }
+
+    Console.WriteLine("\n{0} : {1} | {2} : {3}", jogador1, placarJog1, jogador2, placarJog2);
+}
 
 static void Exer3(string[] args)
 {
-    string jogador1, jogador2;
+    //iniciando variaveis com valores padroes
+    string jogador1 = "a", jogador2 = "a";
+    int numJogadas = 0;
+    int dadoJog1, dadoJog2, placarJog1 =0, placarJog2=0;
+    Random dados = new Random();
 
-    Console.WriteLine("Quem é o primeiro jogador?");
-    jogador1 = Console.ReadLine();
+    while (jogador1 == jogador2)
+    {
+        Console.WriteLine("Quem é o primeiro jogador?");
+        jogador1 = Console.ReadLine();
 
-    Console.WriteLine("Quem é o primeiro jogador?");
-    jogador2 = Console.ReadLine();
+        Console.WriteLine("Quem é o primeiro jogador?");
+        jogador2 = Console.ReadLine();
+
+        if (jogador1 == jogador2)
+        {
+            Console.WriteLine("****Os nomes são iguais**** \n");
+        }
+    }
+
+    while (numJogadas < 3 || numJogadas > 5)
+    {
+        Console.WriteLine("\nQual o numero de jogadas? (entre 3 a 5)");
+        numJogadas = Convert.ToInt32(Console.ReadLine());
+    }
+
+    //Inicio do jogo
+
+    for(int i = 1; i <= numJogadas; i++)
+    {
+        dadoJog1 = dados.Next(1, 101);
+        dadoJog2 = dados.Next(1, 101);
+
+        analiseJogo(jogador1, jogador2, dadoJog1, dadoJog2, ref placarJog1, ref placarJog2);
+
+        if(i == numJogadas && placarJog1 == placarJog2)
+        {
+            while(placarJog1 == placarJog2)
+            {
+                dadoJog1 = dados.Next(1, 101);
+                dadoJog2 = dados.Next(1, 101);
+
+                analiseJogo(jogador1, jogador2, dadoJog1, dadoJog2, ref placarJog1, ref placarJog2);
+            }
+        }
+    }
+
 }
 
 //Exercício 6 - Jogo da Forca
