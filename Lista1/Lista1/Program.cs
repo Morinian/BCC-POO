@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lista1;
+using System;
 using System;
 using System.Collections.Generic; //Biblioteca para utilização da lista
 using System.IO; //Biblioteca para utilização de leitura de arquivo
@@ -294,12 +295,14 @@ static void Exer3(string[] args)
 //Requisitos da aplicação
 //● Quando o usuário abrir a aplicação deve ser solicitado qual o formato de data ele
 //deseja visualizar. Deve ser disponibilizada as formatações abaixo:
+
 //1.Utilizar minha configuração de sistema: 08 / 01 / 2021 20:48:13(Este item deve apenas
 //converter a data para string, deixar que o sistema use o formato dele)
 //2.Formato simples: 08 - 01 - 21
 //3.Formato longo sexta-feira, 8 de janeiro de 2021
-//4. Formato longo personalizado 08-01-2021 08:48:13
-//5.Formato RFC1123 pattern Fri, 08 Jan 2021 20:48:13 GMT
+//4.Formato longo personalizado 08-01-2021 08:48:13
+//5.Formato RFC1123 pattern Fri, 08 Jan 2021 20:48:13 GMT  agora.ToString("R")
+
 //● Você deverá mostrar as datas conforme os formatos nos exemplos acima. Siga as
 //dicas abaixo:
 //○ Estude como usar o string.Format para personalizar o formato da data.
@@ -314,17 +317,21 @@ static void Exer3(string[] args)
 //● Ao escolher uma das opções o sistema deverá exibir para o usuário um cabeçalho
 //com a data do evento e um texto com a descrição do evento. Abaixo você encontra
 //as datas e textos dos eventos sugeridos acima:
+
 //(ENIAC) - 15 de agosto de 1946 No dia 15 de agosto de 1946 os norte-americanos John
 //Eckert e John Mauchly apresentaram o ENIAC, o primeiro equipamento eletrônico chamado
 //de computador no mundo.
+
 //(RFC1) - 17 de abril de 1969 Em 17 de abril de 1969 foi feita a publicação da RFC1, por
 //esse motivo considera-se esse o dia da internet até hoje.
+
 //(Alan Turing) - 23 de junho de 1912 Nascimento de Alan Turing, matemático e criptoanalista
 //britânico que é considerado o "pai da informática" por ter sido essencial na criação de
 //máquinas que, mais tarde, dariam origem aos PCs que utilizamos hoje para trabalhar,
 //estudar e realizar nossas atividades diárias. Sua genialidade e influência fundamental na
 //história da humanidade, entretanto, foram ceifadas pelo preconceito de uma época que,
 //felizmente, já ficou para trás.
+
 //1. Estude novos formatos de datas e aplique mais opções ao menu de escolha de
 //formato de data.
 //2. Estude a classe System.Globalization.CultureInfo e aplique novos formatos
@@ -334,6 +341,9 @@ static void Exer4(string[] args)
 {
     int numFor = 0;
     int evento = 0;
+
+    DataClasss eventoEscolhido = null;
+    string resultadoFormatacao;
 
     while (numFor < 1 || numFor > 5)
     {
@@ -357,6 +367,38 @@ static void Exer4(string[] args)
         Console.Write("Digite um número entre 1 e 3: \n");
 
         int.TryParse(Console.ReadLine(), out evento);
+    }
+
+    switch (evento)
+    {
+        case 1:
+            eventoEscolhido = new DataClasss(new DateTime(1946, 8, 15, 0, 0, 0));
+            break;
+
+        case 2:
+            eventoEscolhido = new DataClasss(new DateTime(1969, 4, 17, 0, 0, 0));
+            break;
+
+        case 3:
+            eventoEscolhido = new DataClasss(new DateTime(1912, 6, 23, 0, 0, 0));
+            break;
+    }
+
+    resultadoFormatacao = eventoEscolhido.dataConfigurar(numFor);
+
+    switch (evento)
+    {
+        case 1:
+            Console.WriteLine("(ENIAC) - {0} os norte-americanos John Eckert e John Mauchly apresentaram o ENIAC, o primeiro equipamento eletrônico chamado de computador no mundo.", resultadoFormatacao);
+            break;
+
+        case 2:
+            Console.WriteLine("(RFC1) - {0} foi feita a publicação da RFC1, por esse motivo considera-se esse o dia da internet até hoje.", resultadoFormatacao);
+            break;
+
+        case 3:
+            Console.WriteLine("(Alan Turing) - {0} Nascimento de Alan Turing, matemático e criptoanalista britânico que é considerado o \"pai da informática\" por ter sido essencial na criação de máquinas que, mais tarde, dariam origem aos PCs que utilizamos hoje para trabalhar, estudar e realizar nossas atividades diárias. Sua genialidade e influência fundamental na história da humanidade, entretanto, foram ceifadas pelo preconceito de uma época que, felizmente, já ficou para trás", resultadoFormatacao);
+            break;
     }
 }
 
@@ -425,4 +467,4 @@ static void Exer6(string[] args)
 
 }
 
-Exer3(args);
+Exer4(args); 
