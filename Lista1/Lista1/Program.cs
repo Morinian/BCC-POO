@@ -330,7 +330,32 @@ static void Exer3(string[] args)
 
 static void Exer4(string[] args)
 {
+    int numFor = 0;
+    int evento = 0;
 
+    while (numFor < 1 || numFor > 5)
+    {
+        Console.WriteLine("Escolha um formato de data:\n");
+        Console.WriteLine("1 - Utilizar configuração do sisteman\n");
+        Console.WriteLine("2 - Formato simples: dd - MM - yy\n");
+        Console.WriteLine("3 - Formato longo: dia da semana, dia de mês de ano\n");
+        Console.WriteLine("4 - Formato longo personalizado: dd-MM-yyyy HH:mm:ss\n");
+        Console.WriteLine("5 - Formato RFC1123 pattern: ddd, dd MMM yyyy HH:mm:ss 'GMT'\n");
+        Console.Write("Digite um número entre 1 e 5: \n");
+
+        int.TryParse(Console.ReadLine(), out numFor);
+    }
+
+    while (evento < 1 || evento > 3)
+    {
+        Console.WriteLine("\nEscolha um evento histórico:\n");
+        Console.WriteLine("1 - ENIAC\n");
+        Console.WriteLine("2 - RFC1\n");
+        Console.WriteLine("3 - Alan Turing\n");
+        Console.Write("Digite um número entre 1 e 3: \n");
+
+        int.TryParse(Console.ReadLine(), out evento);
+    }
 }
 
 //Exercício 6 - Jogo da Forca
