@@ -8,6 +8,7 @@ class Program
         Exer3();
     }
 
+
     //Exercicio 3
     static void Exer3()
     {
