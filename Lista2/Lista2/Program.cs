@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Runtime.Intrinsics.X86;
 using Lista2;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace Lista2
@@ -8,22 +10,8 @@ namespace Lista2
     {
         static void Main(string[] args)
         {
-            Exer1();
+            Exer2();
         }
-
-        //Uma empresa precisa calcular os salários de seus funcionários.Sabe-se que um
-        //funcionário possui um nome, cpf e salário.Um funcionário também tem seu salário líquido,    
-        //que se baseia no seu salário, descontando impostos, a partir do valor do salário do
-        //funcionário:
-        //- Até R$ 2000: sem descontos
-        //- De R$ 2000,01 a R$ 3000: 7,5%
-        //- De R$ 3000,01 a R$ 4000: 15%
-        //- De R$ 4000,01 a R$ 5000: 22,5%
-        //- Acima de R$ 5000,01: 27,5%
-        //A empresa quer poder calcular o total do pagamento no mês.No relatório, deve estar
-        //contido o pagamento para cada funcionário, incluindo o salário bruto, a quantidade
-        //descontada, e o salário líquido.No final, deve ser apresentado o total do salário bruto dos
-        //funcionários, o total descontado, e o total do salário líquido.
 
         static void Exer1()
         {
@@ -37,6 +25,16 @@ namespace Lista2
             funcionario.salarioBruto = Convert.ToDouble(Console.ReadLine());
 
             funcionario.Relatorio(funcionario);
+        }
+        //Implemente um software que simula um sistema de uma Biblioteca
+        //• Crie uma classe Livro que contém informações de título, autor e ano de
+        //publicação
+        //• Crie uma classe Biblioteca que contém 0, 1 ou mais livros
+        //• Na classe Biblioteca, deve ser possível alugar 1 livro, devolver 1 livro ou
+        //imprimir a lista de livros, incluindo o título, autor e ano de publicação
+        static void Exer2()
+        {
+
         }
     }
 }
