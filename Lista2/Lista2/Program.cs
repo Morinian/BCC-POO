@@ -10,7 +10,7 @@ namespace Lista2
     {
         static void Main(string[] args)
         {
-            Exer3();
+            Exer5();
         }
 
         static void Exer1()
@@ -77,6 +77,17 @@ namespace Lista2
             Felca.vida = 80;
             Felca.ataque = 10;
             Felca.defesa = 10;
+
+            Brino.atacar(Felca);
+            Brino.atacar(Felca);
+            Brino.atacar(Felca);
+            Brino.atacar(Felca);
+        }
+
+        static void Exer5()
+        {
+            PersonagemRPG Brino = new PersonagemRPG(100,40,20);
+            PersonagemRPG Felca = new PersonagemRPG(80,10,10);
 
             Brino.atacar(Felca);
             Brino.atacar(Felca);
