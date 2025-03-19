@@ -67,7 +67,21 @@ namespace Lista2
 
         static void Exer3()
         {
+            Personagem Brino = new Personagem();
+            Personagem Felca = new Personagem();
 
+            Brino.vida = 100;
+            Brino.ataque = 40;
+            Brino.defesa = 20;
+
+            Felca.vida = 80;
+            Felca.ataque = 10;
+            Felca.defesa = 10;
+
+            Brino.atacar(Felca);
+            Brino.atacar(Felca);
+            Brino.atacar(Felca);
+            Brino.atacar(Felca);
         }
     }
 }
