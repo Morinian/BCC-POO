@@ -10,7 +10,7 @@ namespace Lista2
     {
         static void Main(string[] args)
         {
-            Exer2();
+            Exer3();
         }
 
         static void Exer1()
@@ -26,12 +26,6 @@ namespace Lista2
 
             funcionario.Relatorio(funcionario);
         }
-        //Implemente um software que simula um sistema de uma Biblioteca
-        //• Crie uma classe Livro que contém informações de título, autor e ano de
-        //publicação
-        //• Crie uma classe Biblioteca que contém 0, 1 ou mais livros
-        //• Na classe Biblioteca, deve ser possível alugar 1 livro, devolver 1 livro ou
-        //imprimir a lista de livros, incluindo o título, autor e ano de publicação
         static void Exer2()
         {
             Biblioteca nacional = new Biblioteca();
@@ -69,6 +63,11 @@ namespace Lista2
             Console.WriteLine("\n");
 
             nacional.listarLivros();
+        }
+
+        static void Exer3()
+        {
+
         }
     }
 }
