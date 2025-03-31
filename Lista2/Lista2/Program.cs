@@ -10,7 +10,7 @@ namespace Lista2
     {
         static void Main(string[] args)
         {
-            Exer6();
+            Exer7();
         }
 
         static void Exer1()
@@ -84,23 +84,6 @@ namespace Lista2
             Brino.atacar(Felca);
         }
 
-        //    A faculdade Canses ainda utiliza papel e caneta para realizar o cálculo do aluno matriculado
-        //em uma disciplina, e lhe contratou para criar um programa que automatize isso.Porém,
-        //cada disciplina possui uma nota diferente para aprovação. Enquanto em Algoritmos o aluno
-        //só precisa da nota 5 para ser aprovado, em Cálculo, o aluno precisa da nota 7.
-        //Crie um programa onde seja possível cadastrar alunos em uma disciplina.Deve ser
-        //possível realizar a média da disciplina, e checar se um aluno está aprovado ou não em uma
-        //determinada disciplina.Garanta que seja possível imprimir uma relação dos nomes dos
-        //alunos, suas notas na disciplina e se ele está aprovado ou não.
-
-        static void Exer6()
-        {
-            Aluno Paula = new Aluno("Paula");
-            Disciplina Calculo = new Disciplina("Matematica",7.0);
-            Calculo.adicionarNota(Paula, new List<double> { 2.5, 6, 7,6 });
-            Calculo.verAprovação(Paula);
-        }
-
         static void Exer5()
         {
             PersonagemRPG Brino = new PersonagemRPG(100,40,20);
@@ -110,6 +93,42 @@ namespace Lista2
             Brino.atacar(Felca);
             Brino.atacar(Felca);
             Brino.atacar(Felca);
+        }
+
+        static void Exer6()
+        {
+            Aluno Paula = new Aluno("Paula");
+            Disciplina Calculo = new Disciplina("Matematica", 7.0);
+            Calculo.adicionarNota(Paula, new List<double> { 2.5, 6, 7, 6 });
+            Calculo.verAprovação(Paula);
+        }
+
+        //Faça um programa de uma agenda telefônica.Uma agenda telefônica deve possuir
+        //contatos, onde cada contato possui nome, email e telefone.Após cadastrado, deve ser
+        //possível alterar os dados cadastrais de um contato.
+        //Deve ser possível realizar um cadastro de um novo contato em uma agenda telefônica,
+        //remover um contato, ou buscar um contato por nome ou por email, devolvendo seu telefone.
+
+        static void Exer7() {
+            ListaTelefonica casa = new ListaTelefonica();
+
+            Contato Gabriel = new Contato("Gabriel", "gab@gmail.com", "(11)9837-281");
+            Contato Paula = new Contato("Paula", "paula@gmail.com", "(11)9456-781");
+
+            casa.AdicionarContato(Paula);
+            casa.AdicionarContato(Gabriel);
+
+            casa.Listar();
+
+            casa.ExcluirContato(Paula);
+
+            casa.Listar();
+
+            casa.BuscarContato(Gabriel);
+
+            casa.EditarContato(Gabriel, "Gabriel", "otario@gmail.com", "(11)9837-281");
+
+            casa.Listar();
         }
     }
 }
