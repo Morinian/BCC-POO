@@ -10,7 +10,7 @@ namespace Lista2
     {
         static void Main(string[] args)
         {
-            Exer5();
+            Exer6();
         }
 
         static void Exer1()
@@ -82,6 +82,23 @@ namespace Lista2
             Brino.atacar(Felca);
             Brino.atacar(Felca);
             Brino.atacar(Felca);
+        }
+
+        //    A faculdade Canses ainda utiliza papel e caneta para realizar o cálculo do aluno matriculado
+        //em uma disciplina, e lhe contratou para criar um programa que automatize isso.Porém,
+        //cada disciplina possui uma nota diferente para aprovação. Enquanto em Algoritmos o aluno
+        //só precisa da nota 5 para ser aprovado, em Cálculo, o aluno precisa da nota 7.
+        //Crie um programa onde seja possível cadastrar alunos em uma disciplina.Deve ser
+        //possível realizar a média da disciplina, e checar se um aluno está aprovado ou não em uma
+        //determinada disciplina.Garanta que seja possível imprimir uma relação dos nomes dos
+        //alunos, suas notas na disciplina e se ele está aprovado ou não.
+
+        static void Exer6()
+        {
+            Aluno Paula = new Aluno("Paula");
+            Disciplina Calculo = new Disciplina("Matematica",7.0);
+            Calculo.adicionarNota(Paula, new List<double> { 2.5, 6, 7,6 });
+            Calculo.verAprovação(Paula);
         }
 
         static void Exer5()
